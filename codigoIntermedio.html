@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Código Intermedio</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin-top:15px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        footer{
+            background:#0d47a1;
+            color:white;
+            padding:20px;
+            display:flex;
+            align-items:center;
+        }
+
+  
+
+ 
+
+          footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+        @media(max-width:768px){
+
+            footer{
+                flex-direction:column;
+                gap:10px;
+            }
+
+            #atras{
+                margin-left:0;
+            }
+
+            table{
+                font-size:14px;
+            }
+        }
+
+    </style>
+</head>
+<body id="Home">
+
+<header>
+    <h1>Generación de Código Intermedio</h1>
+    <p>Cuarta fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+
+    <div class="card">
+        <h2>¿Qué es la Generación de Código Intermedio?</h2>
+
+        <p>
+            La generación de código intermedio es la cuarta fase del compilador.
+            Se encarga de transformar el árbol semántico en una representación
+            intermedia independiente de la máquina.
+        </p>
+
+        <p>
+            Esta representación permite optimizar el programa antes de generar
+            el código objeto para una arquitectura específica.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Objetivos</h2>
+
+        <ul>
+            <li>Generar una representación independiente de la máquina.</li>
+            <li>Facilitar la optimización del código.</li>
+            <li>Preparar la generación de código objeto.</li>
+            <li>Mejorar la portabilidad.</li>
+            <li>Reducir la complejidad del compilador.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Entrada y Salida</h2>
+
+        <h3>Entrada</h3>
+
+        <pre>
+Árbol Semántico
+        </pre>
+
+        <h3>Salida</h3>
+
+        <pre>
+Código Intermedio
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Código de Tres Direcciones</h2>
+
+        <p>
+            Cada instrucción contiene como máximo tres operandos.
+        </p>
+
+        <pre>
+a = b + c * d
+        </pre>
+
+        <p>Se convierte en:</p>
+
+        <pre>
+T1 = c * d
+T2 = b + T1
+a = T2
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Variables Temporales</h2>
+
+        <pre>
+x = (a+b)*(c+d)
+        </pre>
+
+        <pre>
+T1 = a + b
+T2 = c + d
+T3 = T1 * T2
+x = T3
+        </pre>
+
+        <p>
+            Los temporales almacenan resultados parciales durante el cálculo.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Árbol de Expresión</h2>
+
+        <pre>
+a + b * c
+
+        +
+       / \
+      a   *
+         / \
+        b   c
+        </pre>
+
+        <p>
+            El árbol respeta la prioridad de los operadores.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Representación por Cuádruplos</h2>
+
+        <table>
+
+            <tr>
+                <th>Operador</th>
+                <th>Arg1</th>
+                <th>Arg2</th>
+                <th>Resultado</th>
+            </tr>
+
+            <tr>
+                <td>*</td>
+                <td>c</td>
+                <td>d</td>
+                <td>T1</td>
+            </tr>
+
+            <tr>
+                <td>+</td>
+                <td>b</td>
+                <td>T1</td>
+                <td>T2</td>
+            </tr>
+
+            <tr>
+                <td>=</td>
+                <td>T2</td>
+                <td>-</td>
+                <td>a</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Representación por Triplos</h2>
+
+        <table>
+
+            <tr>
+                <th>Posición</th>
+                <th>Operación</th>
+                <th>Arg1</th>
+                <th>Arg2</th>
+            </tr>
+
+            <tr>
+                <td>0</td>
+                <td>*</td>
+                <td>c</td>
+                <td>d</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>+</td>
+                <td>b</td>
+                <td>(0)</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>=</td>
+                <td>a</td>
+                <td>(1)</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo de Traducción</h2>
+
+        <pre>
+resultado = a + b * c - d
+        </pre>
+
+        <pre>
+T1 = b * c
+T2 = a + T1
+T3 = T2 - d
+resultado = T3
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Código Intermedio para IF</h2>
+
+        <pre>
+if(a>b)
+{
+    x=1;
+}
+        </pre>
+
+        <pre>
+IF a > b GOTO L1
+GOTO L2
+
+L1:
+x = 1
+
+L2:
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Código Intermedio para WHILE</h2>
+
+        <pre>
+while(x < 10)
+{
+    x = x + 1;
+}
+        </pre>
+
+        <pre>
+L1:
+
+IF x >= 10 GOTO L2
+
+T1 = x + 1
+x = T1
+
+GOTO L1
+
+L2:
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Etiquetas (Labels)</h2>
+
+        <pre>
+L1:
+L2:
+L3:
+        </pre>
+
+        <p>
+            Las etiquetas permiten controlar el flujo de ejecución.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Relación con Registros</h2>
+
+        <pre>
+T1 = A + B
+T2 = C + D
+
+R1 = T1
+R2 = T2
+        </pre>
+
+        <p>
+            Posteriormente los temporales son almacenados en registros físicos.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo Completo</h2>
+
+        <pre>
+x = (a+b)*(c+d)
+        </pre>
+
+        <h3>Código Intermedio Generado</h3>
+
+        <pre>
+T1 = a + b
+T2 = c + d
+T3 = T1 * T2
+x = T3
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Ventajas</h2>
+
+        <ul>
+            <li>Independencia de la máquina.</li>
+            <li>Facilita la optimización.</li>
+            <li>Mejora la portabilidad.</li>
+            <li>Reduce la complejidad del compilador.</li>
+            <li>Permite reutilizar código para distintas arquitecturas.</li>
+        </ul>
+    </div>
+
+    
+
+</section>
+
+<footer>
+   <a id="atras" href="semantico.html">Analisis semantico</a>
+    <a href="#Home">Regresar</a>
+    <a id="adelante" href="optimizacion.html">Optimizacion de Codigo</a>
+</footer>
+
+</body>
+</html>

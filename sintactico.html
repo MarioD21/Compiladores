@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Sintáctico</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin-top:15px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+
+       footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body id="Home">
+
+<header>
+    <h1>Análisis Sintáctico</h1>
+    <p>Segunda fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+
+<div class="card">
+    <h2>¿Qué es el Análisis Sintáctico?</h2>
+
+    <p>
+        El análisis sintáctico es la segunda fase del compilador.
+        Recibe los tokens generados por el análisis léxico y verifica
+        que sigan las reglas gramaticales del lenguaje.
+    </p>
+
+    <p>
+        También es conocido como Parser o Analizador Sintáctico.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Objetivos</h2>
+
+    <ul>
+        <li>Verificar la estructura del programa.</li>
+        <li>Detectar errores sintácticos.</li>
+        <li>Construir árboles sintácticos.</li>
+        <li>Validar reglas gramaticales.</li>
+        <li>Preparar información para el análisis semántico.</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Entrada y Salida</h2>
+
+    <h3>Entrada</h3>
+
+    <pre>
+&lt;PR,int&gt;
+&lt;ID,x&gt;
+&lt;OP,=&gt;
+&lt;NUM,10&gt;
+&lt;DEL,;&gt;
+    </pre>
+
+    <h3>Salida</h3>
+
+    <pre>
+Declaración
+│
+├── Tipo: int
+├── Identificador: x
+└── Valor: 10
+    </pre>
+</div>
+
+<div class="card">
+    <h2>¿Qué es una Gramática?</h2>
+
+    <p>
+        Una gramática define las reglas sintácticas que debe seguir un programa.
+    </p>
+
+    <pre>
+Declaracion → Tipo Identificador = Expresion ;
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Componentes de una Gramática</h2>
+
+    <h3>Terminales</h3>
+
+    <pre>
+int
+if
+while
++
+=
+;
+    </pre>
+
+    <h3>No Terminales</h3>
+
+    <pre>
+Programa
+Expresion
+Declaracion
+Sentencia
+    </pre>
+
+    <h3>Producciones</h3>
+
+    <pre>
+Programa → Declaracion
+
+Declaracion → int id ;
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Ejemplo de Análisis Sintáctico</h2>
+
+    <pre>
+int edad = 20;
+    </pre>
+
+    <pre>
+Declaración
+│
+├── int
+├── edad
+├── =
+├── 20
+└── ;
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Árbol Sintáctico</h2>
+
+    <pre>
+a + b * c
+    </pre>
+
+    <pre>
+      +
+     / \
+    a   *
+       / \
+      b   c
+    </pre>
+
+    <p>
+        La multiplicación tiene mayor prioridad que la suma.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Árbol Sintáctico Abstracto (AST)</h2>
+
+    <pre>
+x = a + b;
+    </pre>
+
+    <pre>
+      =
+     / \
+    x   +
+       / \
+      a   b
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Tipos de Analizadores Sintácticos</h2>
+
+    <h3>Descendentes</h3>
+
+    <ul>
+        <li>Recursive Descent Parser.</li>
+        <li>LL(1).</li>
+    </ul>
+
+    <h3>Ascendentes</h3>
+
+    <ul>
+        <li>LR.</li>
+        <li>SLR.</li>
+        <li>LALR.</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Análisis Descendente</h2>
+
+    <pre>
+E → T
+T → id
+    </pre>
+
+    <pre>
+E
+↓
+T
+↓
+id
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Análisis Ascendente</h2>
+
+    <pre>
+id + id
+    </pre>
+
+    <pre>
+id
+↓
+T
+↓
+E
+
+E + E
+↓
+E
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Errores Sintácticos</h2>
+
+    <h3>Falta de punto y coma</h3>
+
+    <pre>
+int edad = 20
+    </pre>
+
+    <h3>Paréntesis sin cerrar</h3>
+
+    <pre>
+if(x > 0
+{
+}
+    </pre>
+
+    <h3>Llaves incorrectas</h3>
+
+    <pre>
+{
+   int x = 5;
+    </pre>
+
+    <h3>Orden incorrecto</h3>
+
+    <pre>
+= x 10;
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Recuperación de Errores</h2>
+
+    <ul>
+        <li>Modo pánico.</li>
+        <li>Recuperación por frase.</li>
+        <li>Corrección automática.</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Tabla de Símbolos</h2>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+        </tr>
+
+        <tr>
+            <td>edad</td>
+            <td>int</td>
+        </tr>
+
+        <tr>
+            <td>nombre</td>
+            <td>string</td>
+        </tr>
+
+        <tr>
+            <td>promedio</td>
+            <td>float</td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+    <h2>Relación con otras fases</h2>
+
+    <pre>
+Código Fuente
+      ↓
+Análisis Léxico
+      ↓
+Tokens
+      ↓
+Análisis Sintáctico
+      ↓
+Árbol Sintáctico
+      ↓
+Análisis Semántico
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Ejemplo Completo</h2>
+
+    <pre>
+if (x > 10)
+{
+    y = x + 1;
+}
+    </pre>
+
+    <pre>
+IF
+│
+├── Condición
+│   ├── x
+│   ├── >
+│   └── 10
+│
+└── Bloque
+    │
+    └── Asignación
+        │
+        ├── y
+        └── x + 1
+    </pre>
+</div>
+
+<div class="card">
+    <h2>Ventajas del Análisis Sintáctico</h2>
+
+    <ul>
+        <li>Detecta errores de sintaxis.</li>
+        <li>Valida la gramática del lenguaje.</li>
+        <li>Construye árboles sintácticos.</li>
+        <li>Facilita el análisis semántico.</li>
+        <li>Mejora la calidad del código fuente.</li>
+    </ul>
+</div>
+
+</section>
+
+<footer>
+    <a id="atras" href="lexico.html">Analisis lexico</a>
+    <a href="#Home">Regresar</a>
+    <a id="adelante" href="semantico.html">Analisis semántico</a>
+</footer>
+
+</body>
+</html>

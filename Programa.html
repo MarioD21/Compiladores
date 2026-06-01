@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Objeto</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin-top:15px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        
+       footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+        @media(max-width:768px){
+
+            footer{
+                flex-direction:column;
+                gap:10px;
+            }
+
+            #atras{
+                margin-left:0;
+            }
+        }
+
+    </style>
+</head>
+<body id="Home">
+
+<header>
+    <h1>Programa Objeto</h1>
+    <p>Última fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+
+    <div class="card">
+        <h2>¿Qué es el Programa Objeto?</h2>
+
+        <p>
+            El programa objeto es el resultado final del proceso de compilación.
+            Se obtiene después de generar el código objeto y realizar el proceso
+            de enlazado con bibliotecas y módulos necesarios.
+        </p>
+
+        <p>
+            Este programa ya puede ejecutarse directamente en el sistema operativo.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Objetivos</h2>
+
+        <ul>
+            <li>Generar un programa ejecutable.</li>
+            <li>Integrar bibliotecas necesarias.</li>
+            <li>Resolver referencias externas.</li>
+            <li>Preparar el programa para su ejecución.</li>
+            <li>Crear archivos ejecutables.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Entrada y Salida</h2>
+
+        <h3>Entrada</h3>
+
+        <pre>
+Archivo Objeto (.obj / .o)
+        </pre>
+
+        <h3>Salida</h3>
+
+        <pre>
+Programa Ejecutable (.exe)
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Proceso General</h2>
+
+        <pre>
+Código Fuente
+      ↓
+Análisis Léxico
+      ↓
+Análisis Sintáctico
+      ↓
+Análisis Semántico
+      ↓
+Código Intermedio
+      ↓
+Optimización
+      ↓
+Código Objeto
+      ↓
+Programa Objeto
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>¿Qué es el Enlazador (Linker)?</h2>
+
+        <p>
+            El enlazador es un programa que une diferentes archivos objeto
+            y bibliotecas para formar un único programa ejecutable.
+        </p>
+
+        <pre>
+Modulo1.obj
+Modulo2.obj
+Biblioteca.lib
+
+      ↓
+
+Programa.exe
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>¿Qué es el Cargador (Loader)?</h2>
+
+        <p>
+            El cargador es el encargado de colocar el programa ejecutable
+            en la memoria principal para que el procesador pueda ejecutarlo.
+        </p>
+
+        <pre>
+Programa.exe
+      ↓
+Memoria RAM
+      ↓
+CPU
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Bibliotecas</h2>
+
+        <p>
+            Las bibliotecas contienen funciones ya desarrolladas que pueden
+            reutilizarse en distintos programas.
+        </p>
+
+        <pre>
+printf()
+scanf()
+sqrt()
+pow()
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Tipos de Bibliotecas</h2>
+
+        <table>
+
+            <tr>
+                <th>Tipo</th>
+                <th>Descripción</th>
+            </tr>
+
+            <tr>
+                <td>Estática</td>
+                <td>Se incorpora al ejecutable durante la compilación.</td>
+            </tr>
+
+            <tr>
+                <td>Dinámica</td>
+                <td>Se carga durante la ejecución del programa.</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Archivos Utilizados</h2>
+
+        <table>
+
+            <tr>
+                <th>Extensión</th>
+                <th>Descripción</th>
+            </tr>
+
+            <tr>
+                <td>.c</td>
+                <td>Código fuente</td>
+            </tr>
+
+            <tr>
+                <td>.obj</td>
+                <td>Archivo objeto</td>
+            </tr>
+
+            <tr>
+                <td>.o</td>
+                <td>Archivo objeto en Linux</td>
+            </tr>
+
+            <tr>
+                <td>.lib</td>
+                <td>Biblioteca estática</td>
+            </tr>
+
+            <tr>
+                <td>.dll</td>
+                <td>Biblioteca dinámica</td>
+            </tr>
+
+            <tr>
+                <td>.exe</td>
+                <td>Programa ejecutable</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo Completo</h2>
+
+        <h3>Código Fuente</h3>
+
+        <pre>
+#include <stdio.h>
+
+int main()
+{
+    printf("Hola Mundo");
+    return 0;
+}
+        </pre>
+
+        <h3>Proceso</h3>
+
+        <pre>
+hola.c
+   ↓
+Compilador
+   ↓
+hola.obj
+   ↓
+Linker
+   ↓
+hola.exe
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Ejecución del Programa</h2>
+
+        <pre>
+Usuario
+   ↓
+hola.exe
+   ↓
+Sistema Operativo
+   ↓
+Memoria RAM
+   ↓
+CPU
+   ↓
+Resultado
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Ventajas del Programa Objeto</h2>
+
+        <ul>
+            <li>Puede ejecutarse directamente.</li>
+            <li>Integra múltiples módulos.</li>
+            <li>Permite reutilizar bibliotecas.</li>
+            <li>Optimiza el uso del hardware.</li>
+            <li>Representa el resultado final de la compilación.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Resumen de Todas las Fases</h2>
+
+        <table>
+
+            <tr>
+                <th>Fase</th>
+                <th>Resultado</th>
+            </tr>
+
+            <tr>
+                <td>Análisis Léxico</td>
+                <td>Tokens</td>
+            </tr>
+
+            <tr>
+                <td>Análisis Sintáctico</td>
+                <td>Árbol Sintáctico</td>
+            </tr>
+
+            <tr>
+                <td>Análisis Semántico</td>
+                <td>Verificación de significado</td>
+            </tr>
+
+            <tr>
+                <td>Código Intermedio</td>
+                <td>Representación intermedia</td>
+            </tr>
+
+            <tr>
+                <td>Optimización</td>
+                <td>Código mejorado</td>
+            </tr>
+
+            <tr>
+                <td>Código Objeto</td>
+                <td>Instrucciones de máquina</td>
+            </tr>
+
+            <tr>
+                <td>Programa Objeto</td>
+                <td>Ejecutable final</td>
+            </tr>
+
+        </table>
+    </div>
+
+</section>
+
+<footer>
+     <a id="atras" href="CodigoObjeto.html">Generacion de Codigo Objeto</a>
+
+    <a href="index.html" id="atras">
+        Volver al Inicio
+    </a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Léxico</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin:15px 0;
+        }
+
+        p{
+            margin-bottom:10px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        .proceso{
+            text-align:center;
+            font-size:20px;
+            font-weight:bold;
+            line-height:2;
+        }
+
+       
+       footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+    </style>
+
+</head>
+<body id="Home">
+
+<header>
+    <h1>Análisis Léxico</h1>
+    <p>Primera fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio </a>
+</nav>
+
+<section>
+
+    <div class="card">
+        <h2>¿Qué es el Análisis Léxico?</h2>
+
+        <p>
+            El análisis léxico es la primera fase de un compilador.
+            Su función consiste en leer el código fuente carácter por carácter
+            y transformarlo en una secuencia de tokens que posteriormente serán
+            utilizados por el análisis sintáctico.
+        </p>
+
+        <p>
+            También es conocido como <b>scanner</b> o <b>analizador léxico</b>.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Objetivos del Análisis Léxico</h2>
+
+        <ul>
+            <li>Leer el código fuente.</li>
+            <li>Reconocer tokens.</li>
+            <li>Eliminar espacios en blanco innecesarios.</li>
+            <li>Ignorar comentarios.</li>
+            <li>Detectar errores léxicos.</li>
+            <li>Enviar tokens al analizador sintáctico.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>¿Qué es un Token?</h2>
+
+        <p>
+            Un token es una categoría léxica reconocida por el compilador.
+        </p>
+
+        <pre>
+float promedio = 95.5;
+        </pre>
+
+        <table>
+            <tr>
+                <th>Lexema</th>
+                <th>Token</th>
+            </tr>
+            <tr>
+                <td>float</td>
+                <td>PALABRA_RESERVADA</td>
+            </tr>
+            <tr>
+                <td>promedio</td>
+                <td>IDENTIFICADOR</td>
+            </tr>
+            <tr>
+                <td>=</td>
+                <td>OPERADOR</td>
+            </tr>
+            <tr>
+                <td>95.5</td>
+                <td>CONSTANTE</td>
+            </tr>
+            <tr>
+                <td>;</td>
+                <td>DELIMITADOR</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>¿Qué es un Lexema?</h2>
+
+        <p>
+            Un lexema es la secuencia de caracteres encontrada en el código fuente
+            que coincide con un patrón reconocido por el compilador.
+        </p>
+
+        <pre>
+int edad = 20;
+        </pre>
+
+        <table>
+            <tr>
+                <th>Token</th>
+                <th>Lexema</th>
+            </tr>
+            <tr>
+                <td>IDENTIFICADOR</td>
+                <td>edad</td>
+            </tr>
+            <tr>
+                <td>NUMERO</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Componentes Reconocidos</h2>
+
+        <h3>Identificadores</h3>
+
+        <pre>
+nombre
+edad
+promedio
+        </pre>
+
+        <h3>Palabras Reservadas</h3>
+
+        <pre>
+int
+float
+if
+while
+for
+return
+        </pre>
+
+        <h3>Operadores</h3>
+
+        <pre>
++
+-
+*
+/
+=
+==
+!=
+>=
+<=
+        </pre>
+
+        <h3>Delimitadores</h3>
+
+        <pre>
+;
+,
+(
+)
+{
+}
+[
+]
+        </pre>
+
+        <h3>Constantes</h3>
+
+        <pre>
+10
+3.14
+'A'
+"Hola"
+        </pre>
+
+    </div>
+
+  
+
+    <div class="card">
+        <h2>Expresiones Regulares</h2>
+
+        <p>Los analizadores léxicos utilizan expresiones regulares para reconocer patrones.</p>
+
+        <pre>
+Identificador:
+Letra (Letra | Digito)*
+
+Número Entero:
+[0-9]+
+
+Número Real:
+[0-9]+\.[0-9]+
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Tabla de Símbolos</h2>
+
+        <p>
+            La tabla de símbolos almacena información sobre variables,
+            constantes, funciones y otros identificadores.
+        </p>
+
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+            </tr>
+
+            <tr>
+                <td>edad</td>
+                <td>int</td>
+            </tr>
+
+            <tr>
+                <td>promedio</td>
+                <td>float</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Errores Léxicos</h2>
+
+        <h3>Carácter no reconocido</h3>
+
+        <pre>
+int @edad = 20;
+        </pre>
+
+        <p>Error: símbolo '@' no válido.</p>
+
+        <h3>Identificador inválido</h3>
+
+        <pre>
+int 2edad;
+        </pre>
+
+        <p>Error: un identificador no puede iniciar con números.</p>
+
+        <h3>Cadena sin cerrar</h3>
+
+        <pre>
+string nombre = "Mario;
+        </pre>
+
+        <p>Error: cadena de texto no terminada.</p>
+
+    </div>
+
+    
+
+    <div class="card">
+        <h2>Ejemplo Completo</h2>
+
+        <pre>
+int suma = a + b;
+        </pre>
+
+        <h3>Tokens Generados</h3>
+
+        <pre>
+&lt;PR, int&gt;
+&lt;ID, suma&gt;
+&lt;OP, =&gt;
+&lt;ID, a&gt;
+&lt;OP, +&gt;
+&lt;ID, b&gt;
+&lt;DEL, ;&gt;
+        </pre>
+
+    </div>
+
+    <div class="card">
+        <h2>Ventajas del Análisis Léxico</h2>
+
+        <ul>
+            <li>Detecta errores desde las primeras etapas.</li>
+            <li>Reduce la complejidad del compilador.</li>
+            <li>Mejora la velocidad de compilación.</li>
+            <li>Facilita el análisis sintáctico.</li>
+            <li>Organiza el código en tokens.</li>
+        </ul>
+    </div>
+
+  
+
+</section>
+
+<footer>
+    <p></p>
+    <a id="atras" href="CodigoFuente.html"> Codigo Fuente</a>
+    <a href="#Home">Regresar</a>
+     <a id="adelante" href="sintactico.html">Analisis sintáctico</a>
+</footer>
+
+</body>
+</html>

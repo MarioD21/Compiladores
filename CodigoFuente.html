@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Fuente</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin-top:15px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+      
+       footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+        @media(max-width:768px){
+
+            footer{
+                flex-direction:column;
+                gap:10px;
+            }
+
+            #atras{
+                margin-left:0;
+            }
+        }
+
+    </style>
+</head>
+<body id="Home">
+
+<header>
+    <h1>Código Fuente</h1>
+    <p>Punto de partida del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+
+    <div class="card">
+        <h2>¿Qué es el Código Fuente?</h2>
+
+        <p>
+            El código fuente es el conjunto de instrucciones escritas por un
+            programador utilizando un lenguaje de programación de alto nivel.
+        </p>
+
+        <p>
+            Es la entrada principal del compilador y representa la solución
+            a un problema mediante algoritmos, estructuras de control,
+            variables y funciones.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Importancia del Código Fuente</h2>
+
+        <ul>
+            <li>Es el punto de inicio de la compilación.</li>
+            <li>Contiene la lógica del programa.</li>
+            <li>Puede ser modificado y mantenido fácilmente.</li>
+            <li>Es legible para los desarrolladores.</li>
+            <li>Permite crear software de cualquier complejidad.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Características</h2>
+
+        <table>
+
+            <tr>
+                <th>Característica</th>
+                <th>Descripción</th>
+            </tr>
+
+            <tr>
+                <td>Legible</td>
+                <td>Puede ser entendido por personas.</td>
+            </tr>
+
+            <tr>
+                <td>Editable</td>
+                <td>Puede modificarse fácilmente.</td>
+            </tr>
+
+            <tr>
+                <td>Portable</td>
+                <td>Puede compilarse en distintas plataformas.</td>
+            </tr>
+
+            <tr>
+                <td>Estructurado</td>
+                <td>Sigue reglas sintácticas del lenguaje.</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Lenguajes que Utilizan Código Fuente</h2>
+
+        <ul>
+            <li>C</li>
+            <li>C++</li>
+            <li>C#</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>Visual Basic .NET</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo de Código Fuente en C</h2>
+
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 5;
+    int b = 10;
+
+    int suma = a + b;
+
+    printf("Resultado: %d", suma);
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo de Código Fuente en C#</h2>
+
+        <pre>
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int a = 5;
+        int b = 10;
+
+        int suma = a + b;
+
+        Console.WriteLine(suma);
+    }
+}
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Errores que Puede Contener</h2>
+
+        <h3>Errores Léxicos</h3>
+
+        <pre>
+int 123numero;
+        </pre>
+
+        <p>
+            El identificador comienza con un número.
+        </p>
+
+        <h3>Errores Sintácticos</h3>
+
+        <pre>
+if(x > 5
+{
+}
+        </pre>
+
+        <p>
+            Falta un paréntesis de cierre.
+        </p>
+
+        <h3>Errores Semánticos</h3>
+
+        <pre>
+int edad;
+edad = "Veinte";
+        </pre>
+
+        <p>
+            Se asigna una cadena a una variable entera.
+        </p>
+
+    </div>
+
+    <div class="card">
+        <h2>Relación con el Compilador</h2>
+
+        <pre>
+Código Fuente
+      ↓
+Análisis Léxico
+      ↓
+Análisis Sintáctico
+      ↓
+Análisis Semántico
+      ↓
+Código Intermedio
+      ↓
+Optimización
+      ↓
+Código Objeto
+      ↓
+Programa Ejecutable
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Ventajas del Código Fuente</h2>
+
+        <ul>
+            <li>Facilita el mantenimiento del software.</li>
+            <li>Permite detectar errores antes de ejecutar.</li>
+            <li>Es comprensible para los desarrolladores.</li>
+            <li>Puede reutilizarse en otros proyectos.</li>
+            <li>Favorece el trabajo en equipo.</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+   
+    <a href="#Home">Regresar</a>
+    <a id="adelante" href="lexico.html">Analisis Lexico</a>
+</footer>
+
+</body>
+</html>

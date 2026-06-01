@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimización de Código</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin-top:15px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table, th, td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th, td{
+            padding:10px;
+            text-align:center;
+        }
+
+      
+       footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+        @media(max-width:768px){
+
+            footer{
+                flex-direction:column;
+                gap:10px;
+            }
+
+            #atras{
+                margin-left:0;
+            }
+        }
+    </style>
+
+</head>
+<body id="Home">
+
+<header>
+    <h1>Optimización de Código</h1>
+    <p>Quinta fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+
+    <div class="card">
+        <h2>¿Qué es la Optimización de Código?</h2>
+
+        <p>
+            La optimización de código es la fase del compilador que busca
+            mejorar la eficiencia del programa sin modificar su resultado.
+        </p>
+
+        <p>
+            El objetivo es reducir el tiempo de ejecución, el uso de memoria
+            y el número de instrucciones necesarias.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Objetivos</h2>
+
+        <ul>
+            <li>Reducir el tiempo de ejecución.</li>
+            <li>Disminuir el uso de memoria.</li>
+            <li>Eliminar instrucciones innecesarias.</li>
+            <li>Mejorar el rendimiento del programa.</li>
+            <li>Generar código más eficiente.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Entrada y Salida</h2>
+
+        <h3>Entrada</h3>
+
+        <pre>
+Código Intermedio
+        </pre>
+
+        <h3>Salida</h3>
+
+        <pre>
+Código Intermedio Optimizado
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Tipos de Optimización</h2>
+
+        <ul>
+            <li>Optimización Local.</li>
+            <li>Optimización Global.</li>
+            <li>Optimización Dependiente de Máquina.</li>
+            <li>Optimización Independiente de Máquina.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Eliminación de Código Muerto</h2>
+
+        <p>
+            Consiste en eliminar instrucciones que nunca serán utilizadas.
+        </p>
+
+        <h3>Antes</h3>
+
+        <pre>
+x = 10;
+y = 20;
+z = x + y;
+        </pre>
+
+        <h3>Después</h3>
+
+        <pre>
+z = x + y;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Propagación de Constantes</h2>
+
+        <h3>Antes</h3>
+
+        <pre>
+a = 5;
+b = a + 3;
+        </pre>
+
+        <h3>Después</h3>
+
+        <pre>
+b = 5 + 3;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Plegado de Constantes</h2>
+
+        <p>
+            El compilador resuelve expresiones constantes durante la compilación.
+        </p>
+
+        <h3>Antes</h3>
+
+        <pre>
+x = 4 * 5;
+        </pre>
+
+        <h3>Después</h3>
+
+        <pre>
+x = 20;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Eliminación de Expresiones Comunes</h2>
+
+        <h3>Antes</h3>
+
+        <pre>
+x = a + b;
+y = a + b;
+        </pre>
+
+        <h3>Después</h3>
+
+        <pre>
+T1 = a + b;
+x = T1;
+y = T1;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Reducción de Fuerza</h2>
+
+        <p>
+            Sustituye operaciones costosas por otras más rápidas.
+        </p>
+
+        <h3>Antes</h3>
+
+        <pre>
+x = y * 2;
+        </pre>
+
+        <h3>Después</h3>
+
+        <pre>
+x = y + y;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Desenrollado de Ciclos</h2>
+
+        <h3>Antes</h3>
+
+        <pre>
+for(i=0;i<4;i++)
+{
+   suma++;
+}
+        </pre>
+
+        <h3>Después</h3>
+
+        <pre>
+suma++;
+suma++;
+suma++;
+suma++;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Optimización Local</h2>
+
+        <p>
+            Se realiza dentro de un bloque básico de instrucciones.
+        </p>
+
+        <pre>
+T1 = 2 * 3;
+x = T1;
+        </pre>
+
+        <p>Resultado:</p>
+
+        <pre>
+x = 6;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Optimización Global</h2>
+
+        <p>
+            Analiza múltiples bloques del programa para encontrar mejoras.
+        </p>
+
+        <pre>
+if(condicion)
+{
+   x = a+b;
+}
+
+y = a+b;
+        </pre>
+
+        <p>
+            El compilador puede reutilizar el mismo cálculo.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Tabla Comparativa</h2>
+
+        <table>
+
+            <tr>
+                <th>Técnica</th>
+                <th>Objetivo</th>
+            </tr>
+
+            <tr>
+                <td>Código Muerto</td>
+                <td>Eliminar instrucciones innecesarias</td>
+            </tr>
+
+            <tr>
+                <td>Propagación de Constantes</td>
+                <td>Reemplazar variables por valores</td>
+            </tr>
+
+            <tr>
+                <td>Plegado de Constantes</td>
+                <td>Resolver expresiones en compilación</td>
+            </tr>
+
+            <tr>
+                <td>Expresiones Comunes</td>
+                <td>Evitar cálculos repetidos</td>
+            </tr>
+
+            <tr>
+                <td>Reducción de Fuerza</td>
+                <td>Usar operaciones más rápidas</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo Completo</h2>
+
+        <h3>Código Original</h3>
+
+        <pre>
+a = 10;
+b = 20;
+
+c = a + b;
+d = a + b;
+
+x = 4 * 5;
+        </pre>
+
+        <h3>Código Optimizado</h3>
+
+        <pre>
+a = 10;
+b = 20;
+
+T1 = a + b;
+c = T1;
+d = T1;
+
+x = 20;
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Ventajas de la Optimización</h2>
+
+        <ul>
+            <li>Programas más rápidos.</li>
+            <li>Menor uso de memoria.</li>
+            <li>Menor consumo de energía.</li>
+            <li>Mayor eficiencia del procesador.</li>
+            <li>Mejor rendimiento general.</li>
+        </ul>
+    </div>
+
+   
+</section>
+
+<footer>
+   <a id="atras" href="codigoIntermedio.html">Codigo Intermedio</a>
+    <a href="#Home">Regresar</a>
+    <a id="adelante" href="CodigoObjeto.html">Generador de Codigo</a>
+</footer>
+
+</body>
+</html>

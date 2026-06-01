@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Semántico</title>
+
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin:15px 0;
+        }
+
+        p{
+            margin-bottom:10px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        .proceso{
+            text-align:center;
+            font-size:20px;
+            font-weight:bold;
+            line-height:2;
+        }
+
+          footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+    </style>
+
+    </head>
+<body id="Home">
+
+    <header >
+    <h1>Análisis Semántico</h1>
+    <p>Tercera fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+    <div class="card">
+    <h2>¿Qué es el Análisis Semántico?</h2>
+
+    <p>
+        El análisis semántico es la tercera fase del compilador.
+        Se encarga de verificar que las instrucciones tengan sentido
+        de acuerdo con las reglas del lenguaje de programación.
+    </p>
+
+    <p>
+        Mientras que el análisis sintáctico comprueba la estructura,
+        el análisis semántico verifica el significado del programa.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Objetivos del Análisis Semántico</h2>
+
+    <ul>
+        <li>Verificar tipos de datos.</li>
+        <li>Comprobar declaraciones de variables.</li>
+        <li>Validar el uso correcto de funciones.</li>
+        <li>Revisar compatibilidad entre expresiones.</li>
+        <li>Detectar errores semánticos.</li>
+        <li>Preparar la generación de código intermedio.</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Entrada y Salida</h2>
+
+    <h3>Entrada</h3>
+
+    <p>
+        Árbol sintáctico generado por el análisis sintáctico.
+    </p>
+
+    <pre>
+Declaración
+│
+├── int
+├── edad
+└── 20
+    </pre>
+
+    <h3>Salida</h3>
+
+    <p>
+        Árbol sintáctico anotado con información semántica.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Verificación de Tipos</h2>
+
+    <p>
+        El compilador verifica que los tipos sean compatibles.
+    </p>
+
+    <h3>Correcto</h3>
+
+    <pre>
+int edad = 20;
+    </pre>
+
+    <h3>Incorrecto</h3>
+
+    <pre>
+int edad = "veinte";
+    </pre>
+
+    <p>
+        Error: No se puede asignar una cadena a una variable entera.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Uso de Variables</h2>
+
+    <h3>Correcto</h3>
+
+    <pre>
+int x = 10;
+int y = x + 5;
+    </pre>
+
+    <h3>Incorrecto</h3>
+
+    <pre>
+int y = x + 5;
+    </pre>
+
+    <p>
+        Error: Variable 'x' no declarada.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Comprobación de Funciones</h2>
+
+    <h3>Función Correcta</h3>
+
+    <pre>
+int suma(int a, int b)
+{
+    return a + b;
+}
+    </pre>
+
+    <h3>Llamada Correcta</h3>
+
+    <pre>
+suma(5,10);
+    </pre>
+
+    <h3>Error Semántico</h3>
+
+    <pre>
+suma("Hola",10);
+    </pre>
+
+    <p>
+        Los parámetros enviados no coinciden con los tipos esperados.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Tabla de Símbolos</h2>
+
+    <p>
+        El análisis semántico utiliza constantemente la tabla de símbolos.
+    </p>
+
+    <table>
+        <tr>
+            <th>Identificador</th>
+            <th>Tipo</th>
+            <th>Ámbito</th>
+        </tr>
+
+        <tr>
+            <td>edad</td>
+            <td>int</td>
+            <td>Global</td>
+        </tr>
+
+        <tr>
+            <td>nombre</td>
+            <td>string</td>
+            <td>Local</td>
+        </tr>
+
+        <tr>
+            <td>promedio</td>
+            <td>float</td>
+            <td>Global</td>
+        </tr>
+    </table>
+</div>
+
+<div class="card">
+    <h2>Errores Semánticos</h2>
+
+    <h3>Variable No Declarada</h3>
+
+    <pre>
+x = 10;
+    </pre>
+
+    <p>
+        Error: La variable x no existe.
+    </p>
+
+    <h3>Tipos Incompatibles</h3>
+
+    <pre>
+int edad = "Mario";
+    </pre>
+
+    <p>
+        Error: Se esperaba un entero.
+    </p>
+
+    <h3>División Entre Cero</h3>
+
+    <pre>
+int x = 10 / 0;
+    </pre>
+
+    <p>
+        Error semántico detectado.
+    </p>
+
+    <h3>Parámetros Incorrectos</h3>
+
+    <pre>
+suma(5);
+    </pre>
+
+    <p>
+        Error: Número incorrecto de argumentos.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Conversión de Tipos</h2>
+
+    <p>
+        Algunas conversiones pueden realizarse automáticamente.
+    </p>
+
+    <pre>
+int numero = 10;
+float resultado = numero;
+    </pre>
+
+    <p>
+        Conversión implícita de int a float.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Árbol Semántico</h2>
+
+    <pre>
+x = a + b
+
+        =
+       / \
+      x   +
+         / \
+        a   b
+    </pre>
+
+    <p>
+        Durante el análisis semántico se agregan los tipos de datos
+        a cada nodo del árbol.
+    </p>
+</div>
+
+
+<div class="card">
+    <h2>Ejemplo Completo</h2>
+
+    <pre>
+int edad = 20;
+float promedio = 9.5;
+edad = promedio;
+    </pre>
+
+    <p>
+        El compilador analiza si la asignación entre float e int
+        es válida o requiere conversión.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Ventajas del Análisis Semántico</h2>
+
+    <ul>
+        <li>Detecta errores lógicos antes de ejecutar el programa.</li>
+        <li>Verifica compatibilidad de tipos.</li>
+        <li>Comprueba declaraciones y usos de variables.</li>
+        <li>Garantiza coherencia en el programa.</li>
+        <li>Reduce errores durante la ejecución.</li>
+    </ul>
+</div>
+
+</section>
+
+<footer>
+   <a id="atras" href="sintactico.html">Analisis sintactico</a>
+    <a href="#Home">Regresar</a>
+    <a id="adelante" href="codigoIntermedio.html">Codigo Intermedio</a>
+</footer>
+</body>
+
+
+</html>

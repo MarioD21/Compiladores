@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generación de Código Objeto</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#0d47a1;
+            color:white;
+            text-align:center;
+            padding:30px;
+        }
+
+        nav{
+            background:#1565c0;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        section{
+            max-width:1200px;
+            margin:20px auto;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#0d47a1;
+            margin-bottom:15px;
+        }
+
+        h3{
+            color:#1565c0;
+            margin-top:15px;
+        }
+
+        ul{
+            margin-left:20px;
+        }
+
+        pre{
+            background:#272822;
+            color:#f8f8f2;
+            padding:15px;
+            border-radius:5px;
+            overflow:auto;
+            margin-top:10px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+     
+       footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+#atras{
+    color:white;
+    text-decoration:none;
+}
+
+#adelante{
+    color:white;
+    text-decoration:none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+        @media(max-width:768px){
+
+            footer{
+                flex-direction:column;
+                gap:10px;
+            }
+
+            #atras{
+                margin-left:0;
+            }
+        }
+
+    </style>
+</head>
+<body id="Home">
+
+<header>
+    <h1>Generación de Código Objeto</h1>
+    <p>Sexta fase del proceso de compilación</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<section>
+
+    <div class="card">
+        <h2>¿Qué es la Generación de Código Objeto?</h2>
+
+        <p>
+            La generación de código objeto es la fase donde el compilador
+            transforma el código intermedio optimizado en instrucciones
+            específicas para una arquitectura de hardware.
+        </p>
+
+        <p>
+            El resultado es un archivo objeto que posteriormente podrá
+            convertirse en un programa ejecutable.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Objetivos</h2>
+
+        <ul>
+            <li>Traducir el código intermedio a instrucciones de máquina.</li>
+            <li>Asignar registros del procesador.</li>
+            <li>Generar instrucciones eficientes.</li>
+            <li>Preparar el programa para el enlazador.</li>
+            <li>Crear archivos objeto.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Entrada y Salida</h2>
+
+        <h3>Entrada</h3>
+
+        <pre>
+Código Intermedio Optimizado
+        </pre>
+
+        <h3>Salida</h3>
+
+        <pre>
+Código Objeto
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>¿Qué es el Código Objeto?</h2>
+
+        <p>
+            Es un conjunto de instrucciones traducidas a lenguaje máquina
+            o lenguaje ensamblador que la computadora puede ejecutar.
+        </p>
+
+        <pre>
+10110000 01100001
+10110001 00000010
+00000001 11000001
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Lenguaje Ensamblador</h2>
+
+        <p>
+            Antes de llegar al lenguaje máquina, muchas veces el compilador
+            genera código ensamblador.
+        </p>
+
+        <pre>
+MOV AX, 5
+MOV BX, 10
+ADD AX, BX
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Asignación de Registros</h2>
+
+        <p>
+            El compilador debe decidir en qué registros almacenar los datos.
+        </p>
+
+        <pre>
+T1 = A + B
+
+R1 = A
+R2 = B
+
+ADD R1,R2
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Registros del Procesador</h2>
+
+        <table>
+            <tr>
+                <th>Registro</th>
+                <th>Función</th>
+            </tr>
+
+            <tr>
+                <td>AX</td>
+                <td>Acumulador</td>
+            </tr>
+
+            <tr>
+                <td>BX</td>
+                <td>Base</td>
+            </tr>
+
+            <tr>
+                <td>CX</td>
+                <td>Contador</td>
+            </tr>
+
+            <tr>
+                <td>DX</td>
+                <td>Datos</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Instrucciones Básicas</h2>
+
+        <table>
+            <tr>
+                <th>Instrucción</th>
+                <th>Función</th>
+            </tr>
+
+            <tr>
+                <td>LOAD</td>
+                <td>Cargar dato en memoria</td>
+            </tr>
+
+            <tr>
+                <td>STORE</td>
+                <td>Guardar dato</td>
+            </tr>
+
+            <tr>
+                <td>ADD</td>
+                <td>Sumar</td>
+            </tr>
+
+            <tr>
+                <td>SUB</td>
+                <td>Restar</td>
+            </tr>
+
+            <tr>
+                <td>MUL</td>
+                <td>Multiplicar</td>
+            </tr>
+
+            <tr>
+                <td>DIV</td>
+                <td>Dividir</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Ejemplo de Traducción</h2>
+
+        <h3>Código Intermedio</h3>
+
+        <pre>
+T1 = A + B
+        </pre>
+
+        <h3>Código Objeto</h3>
+
+        <pre>
+LOAD R1, A
+LOAD R2, B
+ADD R1, R2
+STORE T1, R1
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Manejo de Temporales</h2>
+
+        <pre>
+T1 = A + B
+T2 = C + D
+T3 = T1 * T2
+        </pre>
+
+        <pre>
+LOAD R1,A
+LOAD R2,B
+ADD R1,R2
+
+LOAD R3,C
+LOAD R4,D
+ADD R3,R4
+
+MUL R1,R3
+STORE T3,R1
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Problema de Registros Limitados</h2>
+
+        <p>
+            Los procesadores tienen una cantidad limitada de registros.
+        </p>
+
+        <pre>
+T1 = A + B
+T2 = C + D
+T3 = E + F
+        </pre>
+
+        <p>
+            Si solo existen dos registros disponibles, algunos temporales
+            deberán almacenarse temporalmente en memoria.
+        </p>
+
+        <pre>
+STORE T1
+STORE T2
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Código para Condicionales</h2>
+
+        <pre>
+if(a>b)
+{
+   x=1;
+}
+        </pre>
+
+        <pre>
+CMP A,B
+JG L1
+JMP L2
+
+L1:
+MOV X,1
+
+L2:
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Código para Ciclos</h2>
+
+        <pre>
+while(x<10)
+{
+   x++;
+}
+        </pre>
+
+        <pre>
+L1:
+CMP X,10
+JGE L2
+
+INC X
+JMP L1
+
+L2:
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>Archivo Objeto</h2>
+
+        <p>
+            El código generado se almacena en archivos objeto con extensiones
+            como:
+        </p>
+
+        <ul>
+            <li>.obj</li>
+            <li>.o</li>
+        </ul>
+
+        <p>
+            Estos archivos aún no son ejecutables.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Ventajas</h2>
+
+        <ul>
+            <li>Genera instrucciones ejecutables.</li>
+            <li>Aprovecha los recursos del procesador.</li>
+            <li>Reduce tiempos de ejecución.</li>
+            <li>Permite crear programas eficientes.</li>
+            <li>Prepara el programa para el enlazado.</li>
+        </ul>
+    </div>
+
+    
+</section>
+
+<footer>
+   <a id="atras" href="optimizacion.html">Optimizacion de Codigo</a>
+    <a href="#Home">Regresar</a>
+    <a id="adelante" href="Programa.html">Programa Objeeto</a>
+</footer>
+</body>
+</html>
